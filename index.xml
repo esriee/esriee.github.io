@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Esrie s Blog</title>
+    <link>https://esriee.github.io/</link>
+    <description>Recent content on Esrie s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 17 May 2024 01:12:28 +0530</lastBuildDate><atom:link href="https://esriee.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Init_1.asec</title>
+      <link>https://esriee.github.io/posts/init_1.asec/</link>
+      <pubDate>Fri, 17 May 2024 01:12:28 +0530</pubDate>
+      
+      <guid>https://esriee.github.io/posts/init_1.asec/</guid>
+      <description>Control can sometimes be an illusion. But sometimes you need illusions to gain control. Fantasy is an easy way to give meaning to world. To cloak our harsh reality with escapist comfort. After all, isn&amp;rsquo;t that why we surround ourselves with so many screens? So we can avoid seeing? So we can avoid each other? So we can avoid truth.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://esriee.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://esriee.github.io/about/</guid>
+      <description>Hi! i&amp;rsquo;m esrie. I&amp;rsquo;m a vulnerability researcher interested in systems and security. I started this blog to document my learning process, share personal research findings, thoughts, and random stuff. my interests include:
+Kernel exploitation Software Exploitation FOSS contact me at coven@tutanota.com</description>
+    </item>
+    
+  </channel>
+</rss>
