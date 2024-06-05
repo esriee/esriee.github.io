@@ -2,20 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://esriee.github.io/</loc>
-    <lastmod>2024-05-17T01:12:28+05:30</lastmod>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2024-06-05T19:04:24+05:30</lastmod>
   </url><url>
-    <loc>https://esriee.github.io/posts/init_1.asec/</loc>
-    <lastmod>2024-05-17T01:12:28+05:30</lastmod>
+    <loc>http://localhost:1313/posts/install-bspwm/</loc>
+    <lastmod>2024-06-05T19:04:24+05:30</lastmod>
   </url><url>
-    <loc>https://esriee.github.io/posts/</loc>
-    <lastmod>2024-05-17T01:12:28+05:30</lastmod>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2024-06-05T19:04:24+05:30</lastmod>
   </url><url>
-    <loc>https://esriee.github.io/about/</loc>
-    <priority>0</priority>
+    <loc>http://localhost:1313/about/</loc>
   </url><url>
-    <loc>https://esriee.github.io/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url><url>
-    <loc>https://esriee.github.io/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
   </url>
 </urlset>

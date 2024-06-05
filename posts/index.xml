@@ -2,19 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Esrie s Blog</title>
-    <link>https://esriee.github.io/posts/</link>
+    <link>http://localhost:1313/posts/</link>
     <description>Recent content in Posts on Esrie s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 May 2024 01:12:28 +0530</lastBuildDate><atom:link href="https://esriee.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Jun 2024 19:04:24 +0530</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Init_1.asec</title>
-      <link>https://esriee.github.io/posts/init_1.asec/</link>
-      <pubDate>Fri, 17 May 2024 01:12:28 +0530</pubDate>
-      
-      <guid>https://esriee.github.io/posts/init_1.asec/</guid>
-      <description>Control can sometimes be an illusion. But sometimes you need illusions to gain control. Fantasy is an easy way to give meaning to world. To cloak our harsh reality with escapist comfort. After all, isn&amp;rsquo;t that why we surround ourselves with so many screens? So we can avoid seeing? So we can avoid each other? So we can avoid truth.</description>
+      <title>Install Bspwm</title>
+      <link>http://localhost:1313/posts/install-bspwm/</link>
+      <pubDate>Wed, 05 Jun 2024 19:04:24 +0530</pubDate>
+      <guid>http://localhost:1313/posts/install-bspwm/</guid>
+      <description>Install and Configure bspwm What is BSPWM? BSPWM is a tiling window manager that arranges windows in a non-overlapping pattern. It uses a binary space partitioning tree data structure to divide the available screen space into a series of rectangular regions. This allows for optimal utilization of screen real estate and facilitates quick navigation between different applications.&#xA;Follow these step-by-step instructions to install BSPWM on your Linux system:&#xA;Install Bspwm Start by installing BSPWM using your package manager.</description>
     </item>
-    
   </channel>
 </rss>

@@ -4,12 +4,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <title> - Esrie s Blog</title>
+    <title>Install Bspwm - Esrie s Blog</title>
 
     
     
-    <meta name="description" content="Hi! i&rsquo;m esrie. I&rsquo;m a vulnerability researcher interested in systems and security. I started this blog to document my learning process, share personal research findings, thoughts, and random stuff. my interests include:
-Kernel exploitation Software Exploitation FOSS contact me at coven@tutanota.com" />
+    <meta name="description" content="Install and Configure bspwm What is BSPWM? BSPWM is a tiling window manager that arranges windows in a non-overlapping pattern. It uses a binary space partitioning tree data structure to divide the available screen space into a series of rectangular regions. This allows for optimal utilization of screen real estate and facilitates quick navigation between different applications.
+Follow these step-by-step instructions to install BSPWM on your Linux system:
+Install Bspwm Start by installing BSPWM using your package manager." />
     <meta name="author" content="" />
     
 
@@ -66,8 +67,10 @@ Kernel exploitation Software Exploitation FOSS contact me at coven@tutanota.com"
         <div class="max-w:700 w:full box:content-box">
 <article class="box:border-box pt:32">
     <header class="mb:32">
-        <div class="font:40 font:extrabold"></div>
-        <div class="mt:16 f:fade-60"></div>
+        <div class="font:40 font:extrabold">Install Bspwm</div>
+        <div class="mt:16 f:fade-60">
+            <time>Jun 5, 2024</time>
+            </div>
     </header><div class="
     _:where(a):hover{text-decoration-color:fade}
     _:where(a){text-decoration:2;underline;fade-10;_text-decoration-color:fade-70@dark}
@@ -105,14 +108,43 @@ Kernel exploitation Software Exploitation FOSS contact me at coven@tutanota.com"
     _:where(video,img){max-width:full}
     _:where(a,mark){text-underline-offset:3}
     _:where(hr){h:2;_bg:fade-10;_bg:fade-70@dark;_my:3em}
-"><h2 id="hi-im-esrie">Hi! i&rsquo;m esrie.</h2>
-<p>I&rsquo;m a vulnerability researcher interested in systems and security. I started this blog to document my  learning process, share personal research findings, thoughts, and random stuff. my interests include:</p>
-<ul>
-<li>Kernel exploitation</li>
-<li>Software Exploitation</li>
-<li>FOSS</li>
-</ul>
-<p>contact me at <a href="mailto:coven@tutanota.com">coven@tutanota.com</a></p>
+"><h1 id="install-and-configure-bspwm">Install and Configure bspwm</h1>
+<p><img src="https://raw.githubusercontent.com/esriee/dots/main/bspwm.jpg" alt="Image 404 " title="bspwm"></p>
+<h2 id="what-is-bspwm">What is BSPWM?</h2>
+<p>BSPWM is a tiling window manager that arranges windows in a non-overlapping pattern. It uses a binary space partitioning tree data structure to divide the available screen space into a series of rectangular regions. This allows for optimal utilization of screen real estate and facilitates quick navigation between different applications.</p>
+<p>Follow these step-by-step instructions to install BSPWM on your Linux system:</p>
+<h3 id="install-bspwm">Install Bspwm</h3>
+<p>Start by installing BSPWM using your package manager. The exact command may vary based on your distribution. For instance, on Debian-based systems like Ubuntu, you can use</p>
+<blockquote>
+<p><code>sudo apt install bspwm sxhkd polybar alacritty picom</code></p>
+</blockquote>
+<p>Arch Linux</p>
+<blockquote>
+<p><code>sudo pacman -Sy bspwm sxhkd polybar alacritty picom </code></p>
+</blockquote>
+<p>Void Linux</p>
+<blockquote>
+<p><code>sudo xbps-install bspwm sxhkd polybar alacritty picom</code></p>
+</blockquote>
+<h3 id="clone-dotfiles-repository">Clone Dotfiles Repository</h3>
+<p>Next, clone your dotfiles repository, which includes BSPWM and other configuration files. Navigate to your home directory and execute</p>
+<blockquote>
+<p><code>git clone https://github.com/esriee/dots</code></p>
+</blockquote>
+<h3 id="move-configuration-files">Move Configuration Files</h3>
+<p><strong>Warning:</strong> These are my personal configurations. You may need to edit or customize these files to fit your own preferences and setup.</p>
+<p>Once cloned, first go into the cloned repository and locate the BSPWM, Polybar, and other configuration files within the dotfiles repository. Then, move these files to a directory named  ~/.config .  to move all the configuration files at once, execute this command:</p>
+<blockquote>
+<p><code>mv ~/dots/* ~/.config/</code></p>
+</blockquote>
+<h3 id="running-bspwm-using-xinitrc">Running bspwm using xinitrc</h3>
+<p>To start BSPWM, you need to set it as your default window manager. Create or edit the <code>~/.xinitrc</code> file to include the following lines</p>
+<blockquote>
+<p><code>exec bspwm</code></p>
+</blockquote>
+<p>If you prefer to use a display manager, you might need to select BSPWM on your login screen</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>That’s it! Now you should have a fully working BSPWM setup. Make sure to customize it as you see fit. And remember, the beauty of Linux lies in its endless customization possibilities. Dive in, experiment, and make your desktop truly yours.</p>
 </div></article>
 <footer class="py:24">
     <div class="f:fade-30 f:14 mb:8"></div>
