@@ -13,7 +13,7 @@
       <link>https://esriee.github.io/posts/install-bspwm/</link>
       <pubDate>Wed, 05 Jun 2024 19:04:24 +0530</pubDate>
       <guid>https://esriee.github.io/posts/install-bspwm/</guid>
-      <description>Install and Configure bspwm What is BSPWM? BSPWM is a tiling window manager that arranges windows in a non-overlapping pattern. It uses a binary space partitioning tree data structure to divide the available screen space into a series of rectangular regions. This allows for optimal utilization of screen real estate and facilitates quick navigation between different applications.&#xA;Follow these step-by-step instructions to install BSPWM on your Linux system:&#xA;Install Bspwm Start by installing BSPWM using your package manager.</description>
+      <description>What is BSPWM? BSPWM is a tiling window manager that arranges windows in a non-overlapping pattern. It is very easy to configure. bspwm doesn&amp;rsquo;t handle any keyboard or pointer inputs a third party program (e.g. sxhkd) is needed in order to translate keyboard and pointer events to bspc invocations.&#xA;Follow these step-by-step instructions to install BSPWM on your Linux system:&#xA;Install Bspwm Start by installing BSPWM using your package manager.</description>
     </item>
   </channel>
 </rss>
