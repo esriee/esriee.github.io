@@ -1,11 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Tags on Esrie s Blog</title>
-    <link>https://esriee.github.io/tags/</link>
-    <description>Recent content in Tags on Esrie s Blog</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <atom:link href="https://esriee.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tags on Madhuka MJ</title><link>https://esriee.github.io/tags/</link><description>Recent content in Tags on Madhuka MJ</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://esriee.github.io/tags/index.xml" rel="self" type="application/rss+xml"/></channel></rss>

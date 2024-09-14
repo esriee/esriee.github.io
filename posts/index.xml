@@ -1,19 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on Esrie s Blog</title>
-    <link>https://esriee.github.io/posts/</link>
-    <description>Recent content in Posts on Esrie s Blog</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 05 Jun 2024 19:04:24 +0530</lastBuildDate>
-    <atom:link href="https://esriee.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Install Bspwm</title>
-      <link>https://esriee.github.io/posts/install-bspwm/</link>
-      <pubDate>Wed, 05 Jun 2024 19:04:24 +0530</pubDate>
-      <guid>https://esriee.github.io/posts/install-bspwm/</guid>
-      <description>What is BSPWM? BSPWM is a tiling window manager that arranges windows in a non-overlapping pattern. It is very easy to configure. bspwm doesn&amp;rsquo;t handle any keyboard or pointer inputs a third party program (e.g. sxhkd) is needed in order to translate keyboard and pointer events to bspc invocations.&#xA;Follow these step-by-step instructions to install BSPWM on your Linux system:&#xA;Install Bspwm Start by installing BSPWM using your package manager.</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Madhuka MJ</title><link>https://esriee.github.io/posts/</link><description>Recent content in Posts on Madhuka MJ</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 13 Sep 2024 22:28:03 +0530</lastBuildDate><atom:link href="https://esriee.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux I/0 Redirections</title><link>https://esriee.github.io/posts/dataflow/</link><pubDate>Fri, 13 Sep 2024 22:28:03 +0530</pubDate><guid>https://esriee.github.io/posts/dataflow/</guid><description>When it comes to managing input and output in Linux the kernels handling of I/O redirection is an essential feature that powers many of the system&amp;rsquo;s functionalities.
+What is I/O Redirection? I/O redirection in Linux is a mechanism that allows you to change the destination of input and output for commands. by default, linux commands read from the standard input (stdin) and write to the standard output (stdout) and standard error (stderr).</description></item><item><title>BSPWM</title><link>https://esriee.github.io/posts/install-bspwm/</link><pubDate>Wed, 05 Jun 2024 19:04:24 +0530</pubDate><guid>https://esriee.github.io/posts/install-bspwm/</guid><description>bspwm What is BSPWM? BSPWM is a tiling window manager that arranges windows in a non-overlapping pattern. It is very easy to configure. bspwm doesn&amp;rsquo;t handle any keyboard or pointer inputs a third party program (e.g. sxhkd) is needed in order to translate keyboard and pointer events to bspc invocations.
+Follow these step-by-step instructions to install BSPWM on your Linux system:
+Install Bspwm Start by installing BSPWM using your package manager.</description></item></channel></rss>
