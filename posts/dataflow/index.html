@@ -1,16 +1,466 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>linux-I/0_Redirections.flv | x</title>
-<meta name=keywords content="linux"><meta name=description content="When it comes to managing input and output in Linux the kernels handling of I/O redirection is an essential feature that powers many of the system&rsquo;s functionalities.
-What is I/O Redirection?
-I/O redirection in Linux is a mechanism that allows you to change the destination of input and output for commands. by default, linux commands read from the standard input (stdin) and write to the standard output (stdout) and standard error (stderr). Redirection enables you to direct these streams."><meta name=author content="Me"><link rel=canonical href=https://esriee.github.io/posts/dataflow/><link crossorigin=anonymous href=/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as=style><link rel=icon href=https://esriee.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://esriee.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://esriee.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://esriee.github.io/apple-touch-icon.png><link rel=mask-icon href=https://esriee.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://esriee.github.io/posts/dataflow/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:url" content="https://esriee.github.io/posts/dataflow/"><meta property="og:site_name" content="x"><meta property="og:title" content="linux-I/0_Redirections.flv"><meta property="og:description" content="When it comes to managing input and output in Linux the kernels handling of I/O redirection is an essential feature that powers many of the system’s functionalities.
-What is I/O Redirection? I/O redirection in Linux is a mechanism that allows you to change the destination of input and output for commands. by default, linux commands read from the standard input (stdin) and write to the standard output (stdout) and standard error (stderr). Redirection enables you to direct these streams."><meta property="og:locale" content="en-us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-09-13T22:28:03+05:30"><meta property="article:modified_time" content="2024-09-13T22:28:03+05:30"><meta property="article:tag" content="Linux"><meta property="og:image" content="https://esriee.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://esriee.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta name=twitter:title content="linux-I/0_Redirections.flv"><meta name=twitter:description content="When it comes to managing input and output in Linux the kernels handling of I/O redirection is an essential feature that powers many of the system&rsquo;s functionalities.
-What is I/O Redirection?
-I/O redirection in Linux is a mechanism that allows you to change the destination of input and output for commands. by default, linux commands read from the standard input (stdin) and write to the standard output (stdout) and standard error (stderr). Redirection enables you to direct these streams."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://esriee.github.io/posts/"},{"@type":"ListItem","position":2,"name":"linux-I/0_Redirections.flv","item":"https://esriee.github.io/posts/dataflow/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"linux-I/0_Redirections.flv","name":"linux-I\/0_Redirections.flv","description":"When it comes to managing input and output in Linux the kernels handling of I/O redirection is an essential feature that powers many of the system\u0026rsquo;s functionalities.\nWhat is I/O Redirection? I/O redirection in Linux is a mechanism that allows you to change the destination of input and output for commands. by default, linux commands read from the standard input (stdin) and write to the standard output (stdout) and standard error (stderr). Redirection enables you to direct these streams.\n","keywords":["linux"],"articleBody":"When it comes to managing input and output in Linux the kernels handling of I/O redirection is an essential feature that powers many of the system’s functionalities.\nWhat is I/O Redirection? I/O redirection in Linux is a mechanism that allows you to change the destination of input and output for commands. by default, linux commands read from the standard input (stdin) and write to the standard output (stdout) and standard error (stderr). Redirection enables you to direct these streams.\nBasics of I/O Redirection stdin, stdout, and stderr\nStandard Input (stdin): This is the default source of input for commands, typically the keyboard. Standard Output (stdout): This is the default destination for command output, typically the terminal. Standard Error (stderr): This is the default destination for error messages, also typically the terminal. Operators\n\u003e: Redirects stdout to a file, overwriting the file if it already exists. \u003e\u003e: Redirects stdout to a file, appending to the file if it already exists. \u003c: Redirects stdin from a file. 2\u003e: Redirects stderr to a file, overwriting the file if it already exists. 2\u003e\u003e: Redirects stderr to a file, appending to the file if it already exists. \u0026\u003e: Redirects both stdout and stderr to a file. Redirection Techniques Pipes (|): In Unix Like systems pipes allow you to use the output of one command as the input to another.\nesrie@mint:~$ ls -l | grep Hello -rw-rw-r-- 1 esrie esrie 0 Sep 13 21:37 Hello File Descriptor Redirection\nexec: You can use exec to redirect file descriptors. to redirect both stdout and stderr in a script. This command saves the current stdout and stderr to file descriptors 3 and 4. later you can restore em if needed. exec 3\u003e\u00261 4\u003e\u00262 Redirection Examples\nRedirect Output and Errors Simultaneously.\nImagine you want to run a command and log both its stdout and stderr into different files while also viewing the output on the term you can achive this using tee command combined with redirection.\ncom \u003e \u003e(tee output.log) 2\u003e \u003e(tee error.log \u003e\u00262) Redirect Outputs with Conditional Execution\ncom \u003e output.log 2\u003e error.log \u0026\u0026 echo \"com succeeded\" \u003e\u003e output.log || echo \"com failed\" \u003e\u003e error.log` These examples should give you some understanding of how to use redirections with common commands in linux.\nI also recommend reading this excellent blog post about pipes,forks, and dups by Rozmichelle. which provides an excellent in-depth understanding about i/o dataflow.\n","wordCount":"396","inLanguage":"en","image":"https://esriee.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E","datePublished":"2024-09-13T22:28:03+05:30","dateModified":"2024-09-13T22:28:03+05:30","author":{"@type":"Person","name":"Me"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://esriee.github.io/posts/dataflow/"},"publisher":{"@type":"Organization","name":"x","logo":{"@type":"ImageObject","url":"https://esriee.github.io/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://esriee.github.io/ accesskey=h title="Home (Alt + H)"><img src=https://esriee.github.io/apple-touch-icon.png alt aria-label=logo height=35>Home</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://esriee.github.io/lib/ title=lib><span>lib</span></a></li><li><a href=https://esriee.github.io/tags/ title=tags><span>tags</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://esriee.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://esriee.github.io/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">linux-I/0_Redirections.flv</h1><div class=post-meta><span title='2024-09-13 22:28:03 +0530 +0530'>September 13, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;396 words&nbsp;·&nbsp;Me&nbsp;|&nbsp;<a href=https://github.com/%3cpath_to_repo%3e/content/posts/dataflow.md rel="noopener noreferrer" target=_blank>Suggest Changes</a></div></header><div class=post-content><p>When it comes to managing input and output in Linux the kernels handling of I/O redirection is an essential feature that powers many of the system&rsquo;s functionalities.</p><h3 id=what-is-io-redirection>What is I/O Redirection?<a hidden class=anchor aria-hidden=true href=#what-is-io-redirection>#</a></h3><p>I/O redirection in Linux is a mechanism that allows you to change the destination of input and output for commands. by default, linux commands read from the standard input (stdin) and write to the standard output (stdout) and standard error (stderr). Redirection enables you to direct these streams.</p><h3 id=basics-of-io-redirection>Basics of I/O Redirection<a hidden class=anchor aria-hidden=true href=#basics-of-io-redirection>#</a></h3><ol><li><p><strong>stdin, stdout, and stderr</strong></p><ul><li><strong>Standard Input (stdin)</strong>: This is the default source of input for commands, typically the keyboard.</li><li><strong>Standard Output (stdout)</strong>: This is the default destination for command output, typically the terminal.</li><li><strong>Standard Error (stderr)</strong>: This is the default destination for error messages, also typically the terminal.</li></ul></li><li><p><strong>Operators</strong></p><ul><li><strong><code>></code></strong>: Redirects stdout to a file, overwriting the file if it already exists.</li><li><strong><code>>></code></strong>: Redirects stdout to a file, appending to the file if it already exists.</li><li><strong><code>&lt;</code></strong>: Redirects stdin from a file.</li><li><strong><code>2></code></strong>: Redirects stderr to a file, overwriting the file if it already exists.</li><li><strong><code>2>></code></strong>: Redirects stderr to a file, appending to the file if it already exists.</li><li><strong><code>&></code></strong>: Redirects both stdout and stderr to a file.</li></ul></li></ol><h3 id=redirection-techniques>Redirection Techniques<a hidden class=anchor aria-hidden=true href=#redirection-techniques>#</a></h3><p><strong>Pipes (<code>|</code>)</strong>: In Unix Like systems pipes allow you to use the output of one command as the input to another.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>esrie@mint:~$ ls -l <span class=p>|</span> grep Hello
-</span></span><span class=line><span class=cl>-rw-rw-r--  <span class=m>1</span> esrie esrie    <span class=m>0</span> Sep <span class=m>13</span> 21:37 Hello
-</span></span></code></pre></div><p><strong>File Descriptor Redirection</strong></p><ul><li><strong><code>exec</code></strong>: You can use <code>exec</code> to redirect file descriptors. to redirect both stdout and stderr in a script. This command saves the current stdout and stderr to file descriptors 3 and 4. later you can restore em if needed.</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>exec</span> 3&gt;<span class=p>&amp;</span><span class=m>1</span> 4&gt;<span class=p>&amp;</span><span class=m>2</span>
-</span></span></code></pre></div><p><strong>Redirection Examples</strong></p><p>Redirect Output and Errors Simultaneously.</p><p>Imagine you want to run a command and log both its stdout and stderr into different files while also viewing the output on the term you can achive this using tee command combined with redirection.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>com &gt; &gt;<span class=o>(</span>tee output.log<span class=o>)</span> 2&gt; &gt;<span class=o>(</span>tee error.log &gt;<span class=p>&amp;</span>2<span class=o>)</span>
-</span></span></code></pre></div><p>Redirect Outputs with Conditional Execution</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>com &gt; output.log 2&gt; error.log <span class=o>&amp;&amp;</span> <span class=nb>echo</span> <span class=s2>&#34;com succeeded&#34;</span> &gt;&gt; output.log <span class=o>||</span> <span class=nb>echo</span> <span class=s2>&#34;com failed&#34;</span> &gt;&gt; error.log<span class=sb>`</span>
-</span></span></code></pre></div><p>These examples should give you some understanding of how to use redirections with common commands in linux.</p><p>I also recommend reading this excellent blog post about <a href=https://www.rozmichelle.com/pipes-forks-dups/>pipes,forks, and dups by Rozmichelle</a>. which provides an excellent in-depth understanding about i/o dataflow.</p></div><footer class=post-footer><ul class=post-tags><li><a href=https://esriee.github.io/tags/linux/>Linux</a></li></ul><nav class=paginav><a class=next href=https://esriee.github.io/posts/install-bspwm/><span class=title>Next »</span><br><span>bspwm.asf</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2025 <a href=https://esriee.github.io/>x</a></span> ·
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
-</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=36161&amp;path=livereload" data-no-instant defer></script>
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+<script defer language="javascript" type="text/javascript" src="/js/bundle.min.7750550c0319f5de56d916b91e642bf72a5bd09ee50b201dc2ed9db69d6177a8.js"></script>
+
+
+
+
+
+
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="icon" href=/static/favicon.gif>
+
+    
+    
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+
+
+<!-- Open Graph image and Twitter Card metadata -->
+
+<title itemprop="name">esriee - I/0_Redirections.elf</title>
+<meta property="og:title" content=esriee&#32;-&#32;I/0_Redirections.elf />
+<meta name="twitter:title" content=esriee&#32;-&#32;I/0_Redirections.elf />
+<meta itemprop="name" content=esriee&#32;-&#32;I/0_Redirections.elf />
+<meta name="application-name" content=esriee&#32;-&#32;I/0_Redirections.elf />
+<meta property="og:site_name" content="" />
+
+
+<meta name="description" content="" />
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+
+<base href="//localhost:36161/posts/dataflow/" />
+<link rel="canonical" href="//localhost:36161/posts/dataflow/" itemprop="url" />
+<meta name="url" content="//localhost:36161/posts/dataflow/" />
+<meta name="twitter:url" content="//localhost:36161/posts/dataflow/" />
+<meta property="og:url" content="//localhost:36161/posts/dataflow/" />
+
+
+<meta property="og:updated_time" content="2024-09-13T22:28:03&#43;05:30" />
+
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href='//localhost:36161/sitemap.xml' />
+
+<meta name="robots" content="index,follow" />
+<meta name="googlebot" content="index,follow" />
+
+
+
+  
+    <meta name="twitter:site" content="@vxplot" />
+    <meta name="twitter:creator" content="@vxplot" />
+
+<meta property="fb:admins" content="" />
+
+
+<meta name="apple-mobile-web-app-title" content="" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.147.5">
+
+
+    
+    
+
+<link type="text/css" rel="stylesheet" href="/css/bundle.min.f0141de2b668a1cf037b14946b25a3185f58b6afa5a3c1cf85dda130962cdde5.css">
+
+
+    
+    <style>
+    body {
+        --sidebar-bg-color: #202020;
+        --sidebar-img-border-color: #515151;
+        --sidebar-p-color: #909090;
+        --sidebar-h1-color: #FFF;
+        --sidebar-a-color: #FFF;
+        --sidebar-socials-color: #FFF;
+        --text-color: #222;
+        --bkg-color: #FAF9F6;
+        --post-title-color: #303030;
+        --list-color: #5A5A5A;
+        --link-color: #268BD2;
+        --date-color: #515151;
+        --table-border-color: #E5E5E5;
+        --table-stripe-color: #F9F9F9;
+        --code-color: #000;
+        --code-background-color: #E5E5E5;
+        --code-block-color: #FFF;
+        --code-block-background-color: #272822;
+        --moon-sun-color: #FFF;
+        --moon-sun-background-color: #515151;
+    }
+    body.dark-theme {
+        --text-color: #EEE;
+        --bkg-color: #121212;
+        --post-title-color: #DBE2E9;
+        --list-color: #9D9D9D;
+        --link-color: #268BD2;
+        --date-color: #9A9A9A;
+        --table-border-color: #515151;
+        --table-stripe-color: #202020;
+        --code-color: #FFF;
+        --code-background-color: #515151;
+        --code-block-color: #FFF;
+        --code-block-background-color: #272822;
+    }
+    body {
+        background-color: var(--bkg-color);
+    }
+</style>
+
+</head>
+
+    <body class="dark-theme">
+        <div class="wrapper">
+            <aside class="sidebar">
+    <div class="container sidebar-sticky">
+        <div class="light-dark" align="right">
+    <button class="btn-light-dark" title="Toggle light/dark mode">
+        <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+            <path fill="currentColor" d="M6 .278a.768.768 0 0 1 .08.858a7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277c.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316a.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71C0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        </svg>
+        <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+            <path fill="currentColor" d="M8 12a4 4 0 1 0 0-8a4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+        </svg>
+    </button>
+</div>
+
+        <div class="sidebar-about">
+    <h1 class="brand">
+        
+            <a href="//localhost:36161/">
+                <img src="/images/me.png" alt="brand image">
+            </a>
+        
+        
+            <a href="//localhost:36161/">
+                <h1>esriee</h1>
+            </a>
+        
+    </h1>
+    <p class="lead">
+    rev/pwn
+    </p>
+</div>
+
+        <nav>
+    <ul class="sidebar-nav">
+
+        
+        
+        
+        
+            
+
+            
+                
+                
+                    <li class="heading">
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                
+            
+                
+                
+            
+                
+                
+            
+            
+                
+                
+            
+                
+                
+                        
+                
+            
+        
+        
+            
+
+            
+                
+                
+            
+                
+                
+                    <li class="heading">
+                        <a href="/posts/">Posts</a>
+                    </li>
+                    
+                        <li class="sub-heading">
+                            Recent
+                        </li>
+                        
+                            <li class="bullet">
+                                <a href="//localhost:36161/posts/dataflow/">I/0_Redirections.elf</a>
+                            </li>
+                        
+                    
+                
+            
+                
+                
+            
+            
+                
+                
+            
+                
+                
+                        
+                
+            
+        
+
+    </ul>
+</nav>
+
+        
+    <a target="_blank" class="social" title="GitHub" href="https://github.com/esriee">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="-2 -2 24 24">
+            <path fill="currentColor" d="M18.88 1.099C18.147.366 17.265 0 16.233 0H3.746C2.714 0 1.832.366 1.099 1.099C.366 1.832 0 2.714 0 3.746v12.487c0 1.032.366 1.914 1.099 2.647c.733.733 1.615 1.099 2.647 1.099H6.66c.19 0 .333-.007.429-.02a.504.504 0 0 0 .286-.169c.095-.1.143-.245.143-.435l-.007-.885c-.004-.564-.006-1.01-.006-1.34l-.3.052c-.19.035-.43.05-.721.046a5.555 5.555 0 0 1-.904-.091a2.026 2.026 0 0 1-.872-.39a1.651 1.651 0 0 1-.572-.8l-.13-.3a3.25 3.25 0 0 0-.41-.663c-.186-.243-.375-.407-.566-.494l-.09-.065a.956.956 0 0 1-.17-.156a.723.723 0 0 1-.117-.182c-.026-.061-.004-.111.065-.15c.07-.04.195-.059.378-.059l.26.04c.173.034.388.138.643.311a2.1 2.1 0 0 1 .631.677c.2.355.44.626.722.813c.282.186.566.28.852.28c.286 0 .533-.022.742-.065a2.59 2.59 0 0 0 .585-.196c.078-.58.29-1.028.637-1.34a8.907 8.907 0 0 1-1.333-.234a5.314 5.314 0 0 1-1.223-.507a3.5 3.5 0 0 1-1.047-.872c-.277-.347-.505-.802-.683-1.365c-.177-.564-.266-1.215-.266-1.952c0-1.049.342-1.942 1.027-2.68c-.32-.788-.29-1.673.091-2.652c.252-.079.625-.02 1.119.175c.494.195.856.362 1.086.5c.23.14.414.257.553.352a9.233 9.233 0 0 1 2.497-.338c.859 0 1.691.113 2.498.338l.494-.312a6.997 6.997 0 0 1 1.197-.572c.46-.174.81-.221 1.054-.143c.39.98.424 1.864.103 2.653c.685.737 1.028 1.63 1.028 2.68c0 .737-.089 1.39-.267 1.957c-.177.568-.407 1.023-.689 1.366a3.65 3.65 0 0 1-1.053.865c-.42.234-.828.403-1.223.507a8.9 8.9 0 0 1-1.333.235c.45.39.676 1.005.676 1.846v3.11c0 .147.021.266.065.357a.36.36 0 0 0 .208.189c.096.034.18.056.254.064c.074.01.18.013.318.013h2.914c1.032 0 1.914-.366 2.647-1.099c.732-.732 1.099-1.615 1.099-2.647V3.746c0-1.032-.367-1.914-1.1-2.647z"/>
+        </svg>
+    </a>
+
+
+
+
+    <a target="_blank" class="social" title="Twitter" href="https://twitter.com/vxplot">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 16 16">
+            <path fill="currentColor" d="M5.032 14.286c6.037 0 9.34-4.837 9.34-9.032c0-.137 0-.274-.01-.41A6.56 6.56 0 0 0 16 3.2c-.6.256-1.235.425-1.885.5a3.207 3.207 0 0 0 1.443-1.757c-.645.37-1.35.63-2.085.77a3.322 3.322 0 0 0-1.862-.958a3.384 3.384 0 0 0-2.082.334a3.223 3.223 0 0 0-1.442 1.49a3.08 3.08 0 0 0-.208 2.03a9.57 9.57 0 0 1-3.747-.963a9.269 9.269 0 0 1-3.018-2.354a3.086 3.086 0 0 0-.36 2.314c.189.787.68 1.475 1.376 1.924a3.344 3.344 0 0 1-1.49-.398v.04c0 .734.263 1.444.743 2.01a3.3 3.3 0 0 0 1.89 1.102c-.483.128-.99.146-1.482.055a3.19 3.19 0 0 0 1.168 1.577a3.36 3.36 0 0 0 1.9.627A6.732 6.732 0 0 1 0 12.86a9.527 9.527 0 0 0 5.032 1.423"/>
+        </svg>
+    </a>
+
+
+
+
+
+
+    <a target="_blank" class="social" title="Discord" href="https://discordapp.com/users/981442309143035934">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M19.27 5.33C17.94 4.71 16.5 4.26 15 4a.09.09 0 0 0-.07.03c-.18.33-.39.76-.53 1.09a16.09 16.09 0 0 0-4.8 0c-.14-.34-.35-.76-.54-1.09c-.01-.02-.04-.03-.07-.03c-1.5.26-2.93.71-4.27 1.33c-.01 0-.02.01-.03.02c-2.72 4.07-3.47 8.03-3.1 11.95c0 .02.01.04.03.05c1.8 1.32 3.53 2.12 5.24 2.65c.03.01.06 0 .07-.02c.4-.55.76-1.13 1.07-1.74c.02-.04 0-.08-.04-.09c-.57-.22-1.11-.48-1.64-.78c-.04-.02-.04-.08-.01-.11c.11-.08.22-.17.33-.25c.02-.02.05-.02.07-.01c3.44 1.57 7.15 1.57 10.55 0c.02-.01.05-.01.07.01c.11.09.22.17.33.26c.04.03.04.09-.01.11c-.52.31-1.07.56-1.64.78c-.04.01-.05.06-.04.09c.32.61.68 1.19 1.07 1.74c.03.01.06.02.09.01c1.72-.53 3.45-1.33 5.25-2.65c.02-.01.03-.03.03-.05c.44-4.53-.73-8.46-3.1-11.95c-.01-.01-.02-.02-.04-.02zM8.52 14.91c-1.03 0-1.89-.95-1.89-2.12s.84-2.12 1.89-2.12c1.06 0 1.9.96 1.89 2.12c0 1.17-.84 2.12-1.89 2.12zm6.97 0c-1.03 0-1.89-.95-1.89-2.12s.84-2.12 1.89-2.12c1.06 0 1.9.96 1.89 2.12c0 1.17-.83 2.12-1.89 2.12z"/>
+        </svg>
+    </a>
+
+
+
+    <a target="_blank" class="social" title="Instagram" href="https://www.instagram.com/madhukamj">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1.2em" viewBox="0 0 448 512">
+            <path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9S287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7s74.7 33.5 74.7 74.7s-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8c-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8s26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9c-26.2-26.2-58-34.4-93.9-36.2c-37-2.1-147.9-2.1-184.9 0c-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9c1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0c35.9-1.7 67.7-9.9 93.9-36.2c26.2-26.2 34.4-58 36.2-93.9c2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6c-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6c-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6c29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6c11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+        </svg>
+    </a>
+
+
+
+
+
+    <a target="_blank" class="social" title="Matrix" href="https://matrix.to/#/@sys_my7h:matrix.org">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1.2em" viewBox="0 0 27.9 32">
+            <path fill="currentColor" d="m27.1 31.2v-30.5h-2.19v-0.732h3.04v32h-3.04v-0.732z"/>
+            <path fill="currentColor" d="m8.23 10.4v1.54h0.044c0.385-0.564 0.893-1.03 1.49-1.37 0.58-0.323 1.25-0.485 1.99-0.485 0.72 0 1.38 0.14 1.97 0.42 0.595 0.279 1.05 0.771 1.36 1.48 0.338-0.5 0.796-0.941 1.38-1.32 0.58-0.383 1.27-0.574 2.06-0.574 0.602 0 1.16 0.074 1.67 0.22 0.514 0.148 0.954 0.383 1.32 0.707 0.366 0.323 0.653 0.746 0.859 1.27 0.205 0.522 0.308 1.15 0.308 1.89v7.63h-3.13v-6.46c0-0.383-0.015-0.743-0.044-1.08-0.0209-0.307-0.103-0.607-0.242-0.882-0.133-0.251-0.336-0.458-0.584-0.596-0.257-0.146-0.606-0.22-1.05-0.22-0.44 0-0.796 0.085-1.07 0.253-0.272 0.17-0.485 0.39-0.639 0.662-0.159 0.287-0.264 0.602-0.308 0.927-0.052 0.347-0.078 0.697-0.078 1.05v6.35h-3.13v-6.4c0-0.338-7e-3 -0.673-0.021-1-0.0114-0.314-0.0749-0.623-0.188-0.916-0.108-0.277-0.3-0.512-0.55-0.673-0.258-0.168-0.636-0.253-1.14-0.253-0.198 0.0083-0.394 0.042-0.584 0.1-0.258 0.0745-0.498 0.202-0.705 0.374-0.228 0.184-0.422 0.449-0.584 0.794-0.161 0.346-0.242 0.798-0.242 1.36v6.62h-3.13v-11.4z"/>
+            <path fill="currentColor" d="m0.936 0.732v30.5h2.19v0.732h-3.04v-32h3.03v0.732z"/>
+        </svg>
+    </a>
+
+
+
+    <a target="_blank" class="social" title="RSS Feed" href="/posts/index.xml">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1.2em" viewBox="0 0 1280.000000 1280.000000">
+            <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)" fill="currentColor">
+                <path d="M2295 11929 c-284 -12 -642 -45 -707 -65 -17 -5 -18 -63 -18 -1039 0 -569 4 -1036 8 -1039 5 -3 74 6 153 19 510 86 1168 95 1789 25 1348 -153 2602 -677 3670 -1531 385 -308 820 -744 1126 -1129 842 -1060 1362 -2313 1514 -3650 70 -621 61 -1279 -25 -1789 -13 -79 -22 -148 -19 -153 3 -4 471 -8 1039 -8 l1035 0 5 23 c51 225 85 942 67 1419 -23 605 -77 1044 -198 1617 -294 1400 -927 2734 -1823 3846 -1043 1295 -2364 2259 -3909 2854 -1158 447 -2451 656 -3707 600z"/>
+                <path d="M2255 7845 c-269 -25 -620 -81 -667 -106 -17 -9 -18 -55 -18 -899 0 -706 3 -890 13 -890 6 0 66 18 132 41 130 44 288 79 467 105 154 21 577 30 749 15 1207 -107 2267 -823 2814 -1902 166 -327 268 -637 330 -1001 38 -227 48 -384 42 -662 -8 -348 -44 -590 -126 -831 -23 -66 -41 -126 -41 -132 0 -10 184 -13 890 -13 844 0 890 1 899 18 27 50 88 452 110 725 14 162 14 624 1 782 -59 703 -233 1323 -545 1945 -481 956 -1313 1788 -2270 2268 -620 310 -1239 483 -1940 542 -165 14 -669 10 -840 -5z"/>
+                <path d="M2519 3815 c-391 -66 -725 -336 -868 -703 -79 -201 -96 -462 -45 -677 83 -344 338 -641 666 -774 116 -47 205 -69 330 -80 412 -39 811 153 1040 500 193 292 240 648 128 981 -135 403 -492 699 -914 757 -100 14 -241 12 -337 -4z"/>
+            </g>
+        </svg>
+    </a>
+
+
+
+
+    <a target="_blank" class="social" title="Signal" href="https://signal.me/#eu/A5KcQpU1z1RXFLKI2xusCLkHKnv4lx1mRBqgZaLCAU9ngVnd6yRGm5X5oHMEjpoL">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.4em" viewBox="0 0 1024 1024">
+            <path fill="currentColor" d="M427.5,170.3l7.9,32A319.6,319.6,0,0,0,347,238.9l-16.9-28.3A347.6,347.6,0,0,1,427.5,170.3Zm169,0-7.9,32A319.6,319.6,0,0,1,677,238.9l17.1-28.3A350.1,350.1,0,0,0,596.5,170.3ZM210.6,330a349.5,349.5,0,0,0-40.3,97.5l32,7.9A319.6,319.6,0,0,1,238.9,347ZM193,512a318.5,318.5,0,0,1,3.6-47.8l-32.6-5a352,352,0,0,0,0,105.5l32.6-4.9A319.5,319.5,0,0,1,193,512ZM693.9,813.3,677,785.1a317.8,317.8,0,0,1-88.3,36.6l7.9,32A350.3,350.3,0,0,0,693.9,813.3ZM831,512a319.5,319.5,0,0,1-3.6,47.8l32.6,4.9a352,352,0,0,0,0-105.5l-32.6,5A318.5,318.5,0,0,1,831,512Zm22.7,84.4-32-7.9A319,319,0,0,1,785.1,677l28.3,17A348.9,348.9,0,0,0,853.7,596.4Zm-293.9,231a319.1,319.1,0,0,1-95.6,0L459.3,860a351.3,351.3,0,0,0,105.4,0Zm209-126.2a318.1,318.1,0,0,1-67.6,67.5l19.6,26.6A355.1,355.1,0,0,0,795.4,721Zm-67.6-446a318.6,318.6,0,0,1,67.6,67.6L795.4,303A354.6,354.6,0,0,0,721,228.6Zm-446,67.6a318.6,318.6,0,0,1,67.6-67.6L303,228.6A354.6,354.6,0,0,0,228.6,303ZM813.4,330l-28.3,17a317.8,317.8,0,0,1,36.6,88.3l32-7.9A348.9,348.9,0,0,0,813.4,330ZM464.2,196.6a319.1,319.1,0,0,1,95.6,0l4.9-32.6a351.3,351.3,0,0,0-105.4,0ZM272.1,804.1,204,819.9l15.9-68.1-32.1-7.5-15.9,68.1a33,33,0,0,0,24.6,39.7,34.5,34.5,0,0,0,15,0l68.1-15.7Zm-77.5-89.2,32.2,7.4,11-47.2a316.2,316.2,0,0,1-35.5-86.6l-32,7.9a353.3,353.3,0,0,0,32.4,83.7Zm154,71.4-47.2,11,7.5,32.2,34.7-8.1a349,349,0,0,0,83.7,32.4l7.9-32a316.7,316.7,0,0,1-86.3-35.7ZM512,226c-158,.1-285.9,128.2-285.9,286.1a286.7,286.7,0,0,0,43.9,152L242.5,781.5,359.8,754c133.7,84.1,310.3,44,394.4-89.6S798.3,354.2,664.7,270A286.7,286.7,0,0,0,512,226s"/>
+        </svg>
+    </a>
+
+
+        <p class="footnote">
+powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a target="_blank" href="https://github.com/lukeorth/poison">poison</a>
+    <br>
+    &copy; 2025 . All rights reserved.
+</p>
+
+  </div>
+</aside>
+
+            <main class="content container">
+                <div class="post">
+  <div class="info">
+  <h1 class="post-title">
+    <a href="//localhost:36161/posts/dataflow/">I/0_Redirections.elf</a>
+  </h1>
+
+  <div class="headline">
+    <div>
+      
+      
+      <time datetime=" 2024-09-13T22:28:03&#43;0530" class="post-date">
+        September 13, 2024
+      </time>
+      
+      <span> - </span>
+      <span class="reading-time">
+        
+          
+        
+
+        <span>2 mins read</span>
+      </span>
+    </div>
+
+    
+    <ul class="tags">
+      
+      <li class="tag-linux">
+        <a href="//localhost:36161/tags/linux">linux</a>
+      </li>
+      
+    </ul>
+    
+  </div>
+
+  
+  
+
+  
+</div>
+
+  <p>When it comes to managing input and output in Linux the kernels handling of I/O redirection is an essential feature that powers many of the system&rsquo;s functionalities.</p>
+<h3 id="io-redirection-">I/O Redirection ??</h3>
+<p>I/O redirection in Linux is a mechanism that allows you to change the destination of input and output for commands. by default, linux commands read from the standard input (stdin) and write to the standard output (stdout) and standard error (stderr). Redirection enables you to direct these streams.</p>
+<h3 id="basics-of-io-redirection">Basics of I/O Redirection</h3>
+<ol>
+<li>
+<p><strong>stdin, stdout, and stderr</strong></p>
+<ul>
+<li><strong>Standard Input (stdin)</strong>: This is the default source of input for commands, typically the keyboard.</li>
+<li><strong>Standard Output (stdout)</strong>: This is the default destination for command output, typically the terminal.</li>
+<li><strong>Standard Error (stderr)</strong>: This is the default destination for error messages, also typically the terminal.</li>
+</ul>
+</li>
+<li>
+<p><strong>Operators</strong></p>
+<ul>
+<li><strong><code>&gt;</code></strong>: Redirects stdout to a file, overwriting the file if it already exists.</li>
+<li><strong><code>&gt;&gt;</code></strong>: Redirects stdout to a file, appending to the file if it already exists.</li>
+<li><strong><code>&lt;</code></strong>: Redirects stdin from a file.</li>
+<li><strong><code>2&gt;</code></strong>: Redirects stderr to a file, overwriting the file if it already exists.</li>
+<li><strong><code>2&gt;&gt;</code></strong>: Redirects stderr to a file, appending to the file if it already exists.</li>
+<li><strong><code>&amp;&gt;</code></strong>: Redirects both stdout and stderr to a file.</li>
+</ul>
+</li>
+</ol>
+<h3 id="example-techniques">Example Techniques</h3>
+<p><strong>Pipes (<code>|</code>)</strong>: In Unix Like systems pipes allow you to use the output of one command as the input to another.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>esrie@mint:~$ ls -l | grep Hello
+</span></span><span style="display:flex;"><span>-rw-rw-r--  <span style="color:#ae81ff">1</span> esrie esrie    <span style="color:#ae81ff">0</span> Sep <span style="color:#ae81ff">13</span> 21:37 Hello
+</span></span></code></pre></div><p><strong>File Descriptor Redirection</strong></p>
+<ul>
+<li><strong><code>exec</code></strong>: You can use <code>exec</code> to redirect file descriptors.  to redirect both stdout and stderr in a script. This command saves the  current stdout and stderr to file descriptors 3 and 4. later you can restore em if needed.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>exec 3&gt;&amp;<span style="color:#ae81ff">1</span> 4&gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><p><strong>Redirection Examples</strong></p>
+<p>Redirect Output and Errors Simultaneously.</p>
+<p>Imagine you want to run a command and log both its stdout and 	stderr into different files while also viewing the output on the term you can achive this using tee command combined with redirection.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>com &gt; &gt;<span style="color:#f92672">(</span>tee output.log<span style="color:#f92672">)</span> 2&gt; &gt;<span style="color:#f92672">(</span>tee error.log &gt;&amp;2<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>Redirect Outputs with Conditional Execution</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>com &gt; output.log 2&gt; error.log <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;com succeeded&#34;</span> &gt;&gt; output.log <span style="color:#f92672">||</span> echo <span style="color:#e6db74">&#34;com failed&#34;</span> &gt;&gt; error.log<span style="color:#e6db74">`</span>
+</span></span></code></pre></div><p>These examples should give you some understanding of how to use redirections with common commands in linux.</p>
+<p>I also recommend reading this excellent blog post about <a href="https://www.rozmichelle.com/pipes-forks-dups/" target="_blank">pipes,forks, and dups by Rozmichelle</a>. which provides an excellent in-depth understanding about i/o dataflow.</p>
+
+  
+  <hr>
+<div class="footer">
+    
+	    
+	    
+    
+</div>
+
+  
+</div>
+            </main>
+            
+  
+    <div class="article-toc ">
+    <div class="toc-wrapper">
+      <h4 id="contents"></h4>
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#io-redirection-">I/O Redirection ??</a></li>
+        <li><a href="#basics-of-io-redirection">Basics of I/O Redirection</a></li>
+        <li><a href="#example-techniques">Example Techniques</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+  
+
+        </div>
+    </body>
+</html>

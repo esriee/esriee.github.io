@@ -1,44 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>x</title>
-    <link>https://esriee.github.io/</link>
-    <description>Recent content on x</description>
-    <image>
-      <title>x</title>
-      <url>https://esriee.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://esriee.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
-    </image>
-    <generator>Hugo -- 0.143.1</generator>
+    <title></title>
+    <link>//localhost:36161/</link>
+    <description>Recent content on </description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 13 Sep 2024 22:28:03 +0530</lastBuildDate>
-    <atom:link href="https://esriee.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:36161/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>linux-I/0_Redirections.flv</title>
-      <link>https://esriee.github.io/posts/dataflow/</link>
+      <title>I/0_Redirections.elf</title>
+      <link>//localhost:36161/posts/dataflow/</link>
       <pubDate>Fri, 13 Sep 2024 22:28:03 +0530</pubDate>
-      <guid>https://esriee.github.io/posts/dataflow/</guid>
-      <description>&lt;p&gt;When it comes to managing input and output in Linux the kernels handling of I/O redirection is an essential feature that powers many of the system&amp;rsquo;s functionalities.&lt;/p&gt;
-&lt;h3 id=&#34;what-is-io-redirection&#34;&gt;What is I/O Redirection?&lt;/h3&gt;
-&lt;p&gt;I/O redirection in Linux is a mechanism that allows you to change the destination of input and output for commands. by default, linux commands read from the standard input (stdin) and write to the standard output (stdout) and standard error (stderr). Redirection enables you to direct these streams.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>bspwm.asf</title>
-      <link>https://esriee.github.io/posts/install-bspwm/</link>
-      <pubDate>Wed, 05 Jun 2024 19:04:24 +0530</pubDate>
-      <guid>https://esriee.github.io/posts/install-bspwm/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/esriee/dots/refs/heads/main/i3.png&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;what-is-bspwm&#34;&gt;What is BSPWM?&lt;/h2&gt;
-&lt;p&gt;BSPWM is a tiling window manager that arranges windows in a non-overlapping pattern. It is very easy to configure. bspwm doesn&amp;rsquo;t handle any keyboard or pointer inputs a third party program (e.g. sxhkd) is needed in order to translate keyboard and pointer events to bspc invocations.&lt;/p&gt;
-&lt;h3 id=&#34;install-bspwm&#34;&gt;Install Bspwm&lt;/h3&gt;
-&lt;p&gt;Start by installing BSPWM using your package manager. The exact command may vary based on your distribution. For instance, on Debian-based systems like Ubuntu, you can use&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://esriee.github.io/lib/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://esriee.github.io/lib/</guid>
-      <description>&lt;p&gt;coming soon&amp;hellip;&lt;/p&gt;</description>
+      <guid>//localhost:36161/posts/dataflow/</guid>
+      <description>&lt;p&gt;When it comes to managing input and output in Linux the kernels handling of I/O redirection is an essential feature that powers many of the system&amp;rsquo;s functionalities.&lt;/p&gt;&#xA;&lt;h3 id=&#34;io-redirection-&#34;&gt;I/O Redirection ??&lt;/h3&gt;&#xA;&lt;p&gt;I/O redirection in Linux is a mechanism that allows you to change the destination of input and output for commands. by default, linux commands read from the standard input (stdin) and write to the standard output (stdout) and standard error (stderr). Redirection enables you to direct these streams.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
