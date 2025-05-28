@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on </title>
-    <link>http://localhost:42575/tags/linux/</link>
+    <link>https://esriee.github.io/tags/linux/</link>
     <description>Recent content in Linux on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 13 Sep 2024 22:28:03 +0530</lastBuildDate>
-    <atom:link href="http://localhost:42575/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://esriee.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>I/0_Redirections.elf</title>
-      <link>http://localhost:42575/posts/dataflow/</link>
+      <link>https://esriee.github.io/posts/dataflow/</link>
       <pubDate>Fri, 13 Sep 2024 22:28:03 +0530</pubDate>
-      <guid>http://localhost:42575/posts/dataflow/</guid>
+      <guid>https://esriee.github.io/posts/dataflow/</guid>
       <description>&lt;p&gt;When it comes to managing input and output in Linux the kernels handling of I/O redirection is an essential feature that powers many of the system&amp;rsquo;s functionalities.&lt;/p&gt;&#xA;&lt;h3 id=&#34;io-redirection-&#34;&gt;I/O Redirection ??&lt;/h3&gt;&#xA;&lt;p&gt;I/O redirection in Linux is a mechanism that allows you to change the destination of input and output for commands. by default, linux commands read from the standard input (stdin) and write to the standard output (stdout) and standard error (stderr). Redirection enables you to direct these streams.&lt;/p&gt;</description>
     </item>
   </channel>

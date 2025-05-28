@@ -2,27 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:42575/</loc>
+    <loc>https://esriee.github.io/</loc>
     <lastmod>2025-05-28T19:05:45+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:42575/about/</loc>
+    <loc>https://esriee.github.io/about/</loc>
     <lastmod>2025-05-28T19:05:45+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:42575/posts/</loc>
+    <loc>https://esriee.github.io/posts/</loc>
     <lastmod>2025-02-14T23:48:24+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:42575/public/</loc>
+    <loc>https://esriee.github.io/public/</loc>
     <lastmod>2025-02-14T23:47:25+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:42575/posts/dataflow/</loc>
+    <loc>https://esriee.github.io/posts/dataflow/</loc>
     <lastmod>2024-09-13T22:28:03+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:42575/tags/linux/</loc>
+    <loc>https://esriee.github.io/tags/linux/</loc>
     <lastmod>2024-09-13T22:28:03+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:42575/tags/</loc>
+    <loc>https://esriee.github.io/tags/</loc>
     <lastmod>2024-09-13T22:28:03+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:42575/series/</loc>
+    <loc>https://esriee.github.io/series/</loc>
   </url>
 </urlset>
