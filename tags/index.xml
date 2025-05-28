@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on </title>
-    <link>//localhost:36161/tags/</link>
+    <link>http://localhost:42575/tags/</link>
     <description>Recent content in Tags on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 13 Sep 2024 22:28:03 +0530</lastBuildDate>
-    <atom:link href="//localhost:36161/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:42575/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux</title>
-      <link>//localhost:36161/tags/linux/</link>
+      <link>http://localhost:42575/tags/linux/</link>
       <pubDate>Fri, 13 Sep 2024 22:28:03 +0530</pubDate>
-      <guid>//localhost:36161/tags/linux/</guid>
+      <guid>http://localhost:42575/tags/linux/</guid>
       <description></description>
     </item>
   </channel>
